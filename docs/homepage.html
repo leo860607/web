@@ -1,0 +1,131 @@
+<!DICTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+	<style type="text/css">
+		.homebutton {
+			position: absolute;
+			width: 10%;
+			height: 20%;
+			background: #00BBFF;
+			padding-bottom: 10%;
+			border: none;
+			opacity: 0.9;
+			/*透明度*/
+			box-shadow: 4px 4px 3px rgba(20%, 20%, 40%, 0.5);
+			/*陰影*/
+			padding: 10px;
+			border-radius: 50%;
+			
+			color:white;
+			text-align: center;
+			font-size: 2rem;
+			vertical-align: middle;
+		}
+
+		.homebutton:hover {
+			background: #9F88FF;
+		}
+
+		.rbutton {
+			position: absolute;
+			left: 25%;
+			top: 35%;
+			font-family: SentyGoldenBell, Microsoft JhengHei;
+		}
+
+		.lbutton {
+			position: absolute;
+			left: 23%;
+			top: 25%;
+			font-family: SentyGoldenBell, Microsoft JhengHei;
+		}
+
+		.homepage-text {
+			position: absolute;
+			top:0px;
+			left: 520px;
+			font-size: 5rem;
+			color: white;
+			text-shadow: 0 0 10px #FF0000, 0 0 5px #FFFFFF;
+			 font-family: Microsoft JhengHei;
+
+		}
+
+		#leftbutton {
+			top: 200px;
+			left: 100px;
+		}
+
+		#rightbutton {
+			top: 200px;
+			right:100px;;
+		}
+
+		.test {
+			width: 600px;
+			height: 400px;
+			margin: 0, auto;
+			left: 450px;
+			top: 30%;
+			z-index: 5;
+		}
+
+		body {
+			background: linear-gradient(lightblue,purple);
+		}
+
+		.show {
+			width: 600px;
+			height: 400px;
+		}
+		#phone{
+			position: absolute;
+			top: 0px;
+			left: 370px;
+			width:40%;
+			height:100%;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="test">
+		<div><img class="show" src="pic/1.jpg"></div>
+		<div><img class="show" src="pic/2.jpg"></div>
+		<div><img class="show" src="pic/3.jpg"></div>
+		<div><img class="show" src="pic/4.jpg"></div>
+		<div><img class="show" src="pic/5.jpg"></div>
+	</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.test').slick({
+				dots: true,
+				arrows: true,
+				autoplay: true,
+				infinite: true,
+				speed: 1000,
+				prevArrow: '<button type="button" class="slick-prev Btn-prev">Previous</button>',
+				nextArrow: '<button type="button" class="slick-next Btn-next">Next</button>'
+			});
+		});
+	</script>
+	<p class="homepage-text">選擇出發地點</p>
+	<a href="right.html">
+		<p class="homebutton" id="rightbutton"><span class="rbutton">新豐街</span></p>
+	</a>
+	<a href="left.html">
+		<p class="homebutton" id="leftbutton"><span class="lbutton">濱海</br>校門口</span></p>
+	</a>
+
+
+</body>
+
+</html>

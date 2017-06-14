@@ -1,0 +1,60 @@
+<!DICTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        #back {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+        }
+
+        .heart {
+            position: absolute;
+            top: 20%;
+            left: 35%;
+            width: 10%;
+            height: auto;
+        }
+
+        .back {
+            position: absolute;
+            top: 80%;
+            left: 85%;
+            width: 10%;
+            height: auto;
+        }
+        .back:hover{
+            background-color:gray;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        var x = 0;
+        $(document).ready(function () {
+            change();
+            $('.back').click(function () {
+                window.location.assign("homepage.html");
+            });
+        });
+        function change() {
+            x = x + 1;
+            if (x % 2 == 0) { $(".heart").attr("src", "pic/heart2.gif"); }
+            else { $(".heart").attr("src", "pic/heart1.gif"); }
+            setTimeout("change( )", 500)
+        }
+    </script>
+
+</head>
+
+<body>
+    <img src="pic/LOCK.jpg" id="back">
+    <img src="pic/heart1.gif" class="heart">
+    <img src="pic/back.gif" class="back">
+
+</body>
+
+</html>

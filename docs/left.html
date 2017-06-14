@@ -1,0 +1,821 @@
+<!DICTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .wall {
+
+            text-align: center;
+            transform: skew(30deg);
+            position: absolute;
+            left: 100;
+            top: 300;
+            bottom: 0;
+            width: 300px;
+            z-index: 1;
+            height: 200px;
+            background: #CC6600;
+        }
+
+        .roof {
+            position: absolute;
+            left: 42;
+            top: 100;
+            bottom: 0;
+            width: 300px;
+            z-index: 1;
+            height: 200px;
+            background: #FFCC22;
+        }
+
+        .fwall {
+            position: absolute;
+            left: 285;
+            top: 250;
+            width: 230px;
+            z-index: 1;
+            height: 100px;
+            background: #EE7700;
+            transform: rotate(60deg)skew(60deg);
+        }
+
+        .window {
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 20px;
+            background: lightblue;
+            transform: rotate(60deg)skew(60deg);
+        }
+
+        #w1 {
+            left: 335;
+            top: 290;
+        }
+
+        #w2 {
+            left: 335;
+            top: 220;
+        }
+
+        #w3 {
+            left: 335;
+            top: 150;
+        }
+
+        #w4 {
+            left: 370;
+            top: 210;
+        }
+
+        #w5 {
+            left: 370;
+            top: 280;
+        }
+
+        #w6 {
+            left: 370;
+            top: 350;
+        }
+
+        .door {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: gold;
+            transform: rotate(60deg)skew(60deg);
+            z-index: 20;
+            left: 413;
+            top: 336;
+        }
+
+        .hop {
+            position: fixed;
+            animation-name: example;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: play;
+            z-index: 10;
+        }
+
+        @keyframes example {
+            0% {
+                top: 48%;
+                left: 46%;
+            }
+            25% {
+                top: 40%;
+                left: 46%;
+            }
+            50% {
+                top: 48%;
+                left: 46%;
+            }
+            75% {
+                top: 40%;
+                left: 46%;
+            }
+            100% {
+                top: 48%;
+                left: 46%;
+            }
+        }
+
+        #pic {
+            width: 128px;
+            height: 80px;
+            position: fixed;
+            top: 48%;
+            left: 46%;
+        }
+
+        .talk {
+            width: 128px;
+            height: 80px;
+            position: fixed;
+            top: 38%;
+            left: 45%;
+            z-index: 4;
+        }
+
+        .talk-text {
+            position: fixed;
+            z-index: 5;
+            top: 42%;
+            left: 46%;
+            font-family: Microsoft JhengHei;
+        }
+
+        .store {
+            background-color: blanchedalmond;
+            position: absolute;
+            width: 30%;
+            height: 2000px;
+        }
+
+        #leftstore {
+            top: 0;
+            left: 0;
+        }
+
+        #rightstore {
+            top: 0;
+            left: 70%
+        }
+
+        .road {
+            background-color: gray;
+            position: absolute;
+            width: 40%;
+            height: 2000px;
+            left: 30%;
+            top: 0;
+            z-index: 0;
+        }
+
+        .road-gray-left {
+
+            background-color: lightgray;
+            position: absolute;
+            width: 10%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .road-gray-right {
+
+            background-color: lightgray;
+            position: absolute;
+            width: 10%;
+            height: 100%;
+            left: 90%;
+            top: 0;
+            z-index: 1;
+        }
+
+        .road-yellow {
+            background-color: yellow;
+            width: 10%;
+            height: 5%;
+            z-index: 1;
+        }
+
+        #y0 {
+            position: absolute;
+            left: 45%;
+            top: 0px;
+        }
+
+        #y1 {
+            position: absolute;
+            left: 45%;
+            top: 300px;
+        }
+
+        #y2 {
+            position: absolute;
+            left: 45%;
+            top: 600px;
+        }
+
+        #y3 {
+            position: absolute;
+            left: 45%;
+            top: 900px;
+        }
+
+        #y4 {
+            position: absolute;
+            left: 45%;
+            top: 1200px;
+        }
+
+        #y5 {
+            position: absolute;
+            left: 45%;
+            top: 1500px;
+        }
+
+        #y6 {
+            position: absolute;
+            left: 45%;
+            top: 1800px;
+        }
+
+
+
+        .board {
+            background-color: green;
+            border: 5px solid white;
+            border-radius: 10%;
+            position: absolute;
+            width: 20%;
+            height: 80px;
+            left: 40%;
+            top: 0;
+            text-align: center;
+            z-index: 2;
+            font-size: 3rem;
+            font-family: Microsoft JhengHei;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .quickbutton {
+            position: fixed;
+            background-color: black;
+            top: 10%;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 10%;
+            z-index: 6;
+        }
+
+        .quickpanel {
+            position: fixed;
+            background-color: black;
+            top: 10%;
+            right: 0;
+            width: 300px;
+            height: 500px;
+            border-radius: 10%;
+            z-index: 6;
+        }
+
+        .goto {
+            position: fixed;
+            background-color: white;
+            width: 150px;
+            height: 50px;
+            right: 5%;
+            font-size: 2em;
+            z-index: 6;
+            text-align: center;
+            color: black
+        }
+
+        #goto1 {
+            top: 15%;
+        }
+
+        #goto2 {
+            top: 30%;
+        }
+
+        #goto3 {
+            top: 45%;
+        }
+
+        #goto4 {
+            top: 60%;
+        }
+
+        .closepanel {
+            position: fixed;
+            background-color: white;
+            top: 75%;
+            right: 7%;
+            width: 100px;
+            height: 30px;
+            border-radius: 30%;
+            z-index: 6;
+            opacity: 0.5;
+            text-align: center;
+            color: gray;
+            font-size: 1.5em;
+        }
+
+        #bar {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            z-index: 6;
+        }
+
+        .shop {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            vertical-align: middle;
+        }
+
+        .shop1mark {
+            z-index: 1;
+        }
+
+
+        #rshop1 {
+            top: 300px;
+            right: 150px;
+        }
+
+        #rshop2 {
+            top: 900px;
+            right: 150px;
+        }
+
+        #rshop3 {
+            top: 1100px;
+            right: 150px;
+        }
+
+        #rshop4 {
+            top: 1300px;
+            right: 150px;
+        }
+
+        #rshop5 {
+            top: 1500px;
+            right: 150px;
+        }
+
+        .shoptext {
+            position: absolute;
+            top: 20%;
+            right: 50px;
+            left: 50px;
+        }
+
+        .markpic {
+            position: absolute;
+            top: -300px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+        }
+
+        .list {
+            position: absolute;
+            width: 100%;
+            height: 3000;
+            background: black;
+            opacity: 0.9;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .close {
+            position: fixed;
+            width: 50;
+            height: 50;
+            background: white;
+            top: 10;
+            right: 10;
+            z-index: 11;
+        }
+
+        .context {
+            position: fixed;
+            width: 40%;
+            height: 50%;
+            top: 40%;
+            right: 5%;
+            z-index: 11;
+        }
+
+        .critic {
+            position: absolute;
+            color: white;
+            text-align: center;
+            top: 5%;
+            right: 5%;
+            left: 5%;
+            z-index: 11;
+            font-size: 1.5em;
+        }
+
+        .star {
+            position: fixed;
+            width: 10%;
+            height: 10%;
+            top: 50%;
+        }
+
+        .foodpic {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 200px;
+            top: 150px;
+            z-index: 5;
+        }
+
+        .fopic {
+
+            width: 300px;
+            height: 400px;
+            left: 50px;
+            z-index: 5;
+        }
+
+        #s1 {
+            right: 5%;
+            top: 100px;
+        }
+
+        #s2 {
+            right: 15%;
+            top: 100px;
+        }
+
+        #s3 {
+            right: 25%;
+            top: 100px;
+        }
+
+        #s4 {
+            right: 35%;
+            top: 100px;
+        }
+
+        #s5 {
+            right: 45%;
+            top: 100px;
+        }
+
+        .turn {
+            position: absolute;
+            top: 1800px;
+            z-index: 1;
+
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: none;
+            opacity: 0.5;
+            background-color: red;
+        }
+
+        #turn-left {
+            left: 33.5%
+        }
+
+        #turn-right {
+            left: 60%
+        }
+
+        .turn-text {
+            color: white;
+            position: absolute;
+            top: 40px;
+            left: 25px;
+        }
+
+        .iphone {
+            position: absolute;
+            left: 10%;
+            top: 0px;
+        }
+
+        #car1 {
+            position: absolute;
+            left: 65%;
+            top: 1600px;
+            z-index: 10;
+        }
+
+        #car2 {
+            position: absolute;
+            left: 18%;
+            top: -500px;
+            z-index: 10;
+        }
+
+        .peo {
+            position: absolute;
+            left: 300px;
+            top: 1100px;
+            width: 250px;
+            height: 250px;
+            z-index: 10;
+        }
+
+        .talk2 {
+            position: absolute;
+            left: -100px;
+            top: 1060px;
+            width: 200px;
+            height: 100px;
+            z-index: 0;
+        }
+
+        #text2 {
+            position: absolute;
+            left: -70px;
+            top: 1100px;
+            z-index: 2;
+        }
+
+        body {
+            font-family: Microsoft JhengHei;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setInterval(cargo, 1000);
+
+            $('#rshop1').click(function () {
+                $('.list').fadeIn(1000);
+                $('#s1').show();
+                $('#s2').show();
+                $('#s3').show();
+                $('#s4').hide();
+                $('#s5').hide();
+                $('#fopic1').attr('src', 'pic/left1-1.jpg');
+                $('#fopic2').attr('src', ' pic/left1-2.jpg');
+                $('.critic').html('推薦品項:布瑞馬鈴薯比薩</br></br>一家人用心經營的一間小點，簡單溫馨的裝飾，木頭製的桌椅總給人一種貼近感，沒有太多餘的廣告或是吵雜的音樂，暈黃的燈光給人慵懶的感覺，可以在這坐著，慢慢吃，慢慢聊，回到義大利那種滿活的悠活時光，為海大附近難得道地的義式比薩。');
+            });
+            $('#rshop2').click(function () {
+                $('.list').fadeIn(1000);
+                $('#s1').show();
+                $('#s2').show();
+                $('#s3').show();
+                $('#s4').show();
+                $('#s5').hide();
+                $('#fopic1').attr('src', 'pic/left2-1.jpg');
+                $('#fopic2').attr('src', ' pic/left2-2.jpg');
+                $('.critic').html('推薦品項:九層塔蛋餅</br></br>古早味早餐店，蛋餅的特色在於，是類似河粉煎的作法，搭配新鮮九層塔，香氣四溢，以及店家特調醬料，讓您魂牽夢縈，除此之外，店內還有許多高cp值得餐點，是海大早餐及消夜不錯的選擇');
+            });
+            $('#rshop3').click(function () {
+                $('.list').fadeIn(1000);
+                $('#s1').show();
+                $('#s2').show();
+                $('#s3').show();
+                $('#s4').show();
+                $('#s5').show();
+                $('#fopic1').attr('src', 'pic/left3-1.jpg');
+                $('#fopic2').attr('src', ' pic/left3-2.jpg');
+                $('.critic').html('推薦品項:奶茶</br></br>中西中東中北中南各式早餐任君挑選，香醇奶茶讓人回味無窮，早晨起來就是要來一杯"阿羅哈奶茶"');
+            });
+            $('#rshop4').click(function () {
+                $('.list').fadeIn(1000);
+                $('#s1').show();
+                $('#s2').show();
+                $('#s3').show();
+                $('#s4').show();
+                $('#s5').hide();
+                $('#fopic1').attr('src', 'pic/left4-1.jpg');
+                $('#fopic2').attr('src', ' pic/left4-2.jpg');
+                $('.critic').html('推薦品項:漢堡類餐點</br></br>漢堡皮現烤，香Q有嚼勁，配料毫不手軟，內用飲料無限暢飲，是個適合下課後聊天暢談的好場所');
+            });
+            $('#rshop5').click(function () {
+                $('.list').fadeIn(1000);
+                $('#s1').hide();
+                $('#s2').hide();
+                $('#s3').hide();
+                $('#s4').hide();
+                $('#s5').hide();
+                $('#fopic1').attr('src', 'pic/left5-1.png');
+                $('#fopic2').attr('src', ' pic/left5-2.png');
+                $('.critic').html('推薦品項:????</br></br>尚未吃過，值得探索!!!!!!!!!!!!!!!!!!!!');
+            });
+            $('.close').click(function () { $('.list').hide(); });
+            $('#bar').click(function () {
+                $('.quickpanel').show(1000);
+                $('#bar').hide();
+            });
+            $('#goto1').click(function () {
+                window.location.assign("right.html");
+            });
+            $('#goto4').click(function () {
+                window.location.assign("rightleft.html");
+            });
+            $('#goto2').click(function () {
+                window.location.assign("leftright.html");
+            });
+            $('#goto3').click(function () {
+                window.location.assign("leftleft.html");
+            });
+            $('#turn-right').click(function () {
+                window.location.assign("leftright.html");
+            });
+            $('#turn-left').click(function () {
+                window.location.assign("leftleft.html");
+            });
+            $('.closepanel').click(function () {
+                $('.quickpanel').hide(1000);
+                $('#bar').show();
+            });
+            $('#pic').hover(function () {
+                $('.talk-text').hide();
+                $('.talk').hide();
+                changetext();
+                $('#pic').addClass('hop');
+                setTimeout(function () {
+                    $('#pic').removeClass('hop');
+                    $('.talk-text').show();
+                    $('.talk').show();
+                }, 2000);
+            });
+
+            $(window).scroll(function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                if (scrollTop > 0) {
+                    $('#rshop1').show();
+                }
+                if (scrollTop > 350) { $('#rshop2').show(); }
+                if (scrollTop > 600) {
+                    $('#rshop3').show();
+                    $('.peo').show();
+                    setInterval(function () {
+                        $('.talk2').show();
+                        $('#text2').show();
+                    },1000);
+                     $(".peo").animate({ left: '-100px' },1000);
+
+                }
+                if (scrollTop > 850) { $('#rshop4').show(); }
+                if (scrollTop > 1000) { $('#rshop5').show(); }
+
+            });
+            function changetext() {
+                var text = ['好餓歐', '想喝茶', '有甚麼好吃的', '今天該吃啥']
+                var cha = Math.floor(Math.random() * 4);
+                $('.talk-text').text(text[cha]);
+            }
+        });
+        function cargo() {
+            $("#car1").animate({ top: '-500px' }, 3000, function () {
+                $("#car1").css({ "top": 1500 });
+            });
+            $("#car2").animate({ top: '1800px' }, 2000, function () {
+                $("#car2").css({ "top": -500 });
+            });
+
+            console.log($("#car1").position().top);
+        }
+        function show1() { $('#food1').show(); }
+        function hide1() { $('#food1').hide(); }
+        function show2() { $('#food2').show(); }
+        function hide2() { $('#food2').hide(); }
+        function show3() { $('#food3').show(); }
+        function hide3() { $('#food3').hide(); }
+        function show4() { $('#food4').show(); }
+        function hide4() { $('#food4').hide(); }
+        function show5() { $('#food5').show(); }
+        function hide5() { $('#food5').hide(); }
+    </script>
+
+</head>
+
+<body>
+    <div class="wall"></div>
+    <div class="roof"></div>
+    <div class="fwall"></div>
+    <div class="window" id="w1"></div>
+    <div class="window" id="w2"></div>
+    <div class="window" id="w3"></div>
+    <div class="window" id="w4"></div>
+    <div class="window" id="w5"></div>
+    <div class="window" id="w6"></div>
+    <div class="door"></div>
+    <div class="quickbutton">
+
+        <img id="bar" src="pic/bar.gif">
+    </div>
+    <div style="display:none" class="quickpanel">
+        <div class="goto" id="goto1">去新豐</div>
+        <div class="goto" id="goto2">去中正</div>
+        <div class="goto" id="goto3">去祥豐</div>
+        <div class="goto" id="goto4">去深溪</div>
+        <div>
+            <div class="closepanel">close</div>
+        </div>
+    </div>
+    <div style="display:none;" class="list"><img src="pic/close.jpg" class="close">
+        <div class="foodpic">
+            <div><img class="fopic" id='fopic1'></div>
+            <div><img class="fopic" id='fopic2'></div>
+        </div>
+        <script type="text/javascript" src="js/slick.min.js"></script>
+        <script type="text/javascript">
+            $('.foodpic').slick({
+                dots: true,
+                arrows: false,
+                autoplay: true,
+                infinite: true,
+                speed: 100
+            });
+        </script>
+        <div class="iphone"><img src="pic/iphonebackground.png"></div>
+        <div class="context">
+            <img src="pic/star.png" class="star" id="s1">
+            <img src="pic/star.png" class="star" id="s2">
+            <img src="pic/star.png" class="star" id="s3">
+            <img src="pic/star.png" class="star" id="s4">
+            <img src="pic/star.png" class="star" id="s5">
+            <div class="critic"></div>
+        </div>
+    </div>
+    <div class="board">濱海校門口</div>
+    <div class="store" id="leftstore">
+    </div>
+    <div class="road">
+        <img src="pic/car.gif" id="car1">
+        <img src="pic/car2.gif" id="car2">
+        <div class="road-gray-left"></div>
+        <div class="road-yellow" id="y0"></div>
+        <div class="road-yellow" id="y1"></div>
+        <div class="road-yellow" id="y2"></div>
+        <div class="road-yellow" id="y3"></div>
+        <div class="road-yellow" id="y4"></div>
+        <div class="road-yellow" id="y5"></div>
+        <div class="road-yellow" id="y6"></div>
+        <div class="road-gray-right"></div>
+    </div>
+    <div><img id="pic" src="pic/people.gif"></div>
+    <img class="talk" src="pic/talk.gif">
+    <div class="talk-text">今天該吃啥勒</div>
+    <div class="store" id="rightstore">
+        <div class="shop" id="rshop1" style="display:none;" onmouseover="show1()" onmouseout="hide1()">
+            <div id="food1" style="display:none;"><img class="markpic" src="pic/left1-1.jpg"></div>
+            <div class="shoptext">美滋客手工窯烤比薩</div>
+            <img class="shop1mark" src="pic/shop.gif">
+        </div>
+        <div class="shop" id="rshop2" style="display:none;" onmouseover="show2()" onmouseout="hide2()">
+            <div id="food2" style="display:none;"><img class="markpic" src="pic/left2-1.jpg"></div>
+            <div class="shoptext">北寧早餐店</div>
+            <img class="shop1mark" src="pic/shop.gif">
+        </div>
+        <div class="shop" id="rshop3" style="display:none;" onmouseover="show3()" onmouseout="hide3()">
+            <div id="food3" style="display:none;"><img class="markpic" src="pic/left3-1.jpg"></div>
+            <div class="shoptext">日久阿羅哈早餐店</div>
+            <img class="shop1mark" src="pic/shop.gif">
+
+        </div>
+        <img class="peo" style="display:none;" src="pic/peo1.gif">
+        <img class="talk2" style="display:none;" src="pic/talk.gif">
+        <div id="text2" style="display:none;">帥哥~進來坐坐吧!</div>
+        <div class="shop" id="rshop4" style="display:none;" onmouseover="show4()" onmouseout="hide4()">
+            <div id="food4" style="display:none;"><img class="markpic" src="pic/left4-1.jpg"></div>
+            <div class="shoptext">Thanks MR.burger</div>
+            <img class="shop1mark" src="pic/shop.gif">
+        </div>
+        <div class="shop" id="rshop5" style="display:none;" onmouseover="show5()" onmouseout="hide5()">
+            <div id="food5" style="display:none;"><img class="markpic" src="pic/left5-1.png"></div>
+            <div class="shoptext">Wunderbar coffee</div>
+            <img class="shop1mark" src="pic/shop.gif">
+        </div>
+    </div>
+    <div class="turn" id="turn-left"><span class="turn-text">祥豐街</span></div>
+    <div class="turn" id="turn-right"><span class="turn-text">中正路</span></div>
+</body>
+
+</html>

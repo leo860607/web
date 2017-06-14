@@ -1,0 +1,110 @@
+<!DICTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+        .pic {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #pic2 {
+            z-index: 1;
+        }
+
+        #pic3 {
+            z-index: 2;
+        }
+
+        #pic4 {
+            z-index: 3;
+        }
+
+        .word {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            z-index: 1;
+        }
+
+        .word2 {
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            z-index: 1;
+        }
+
+        .go {
+            position: absolute;
+            top:100px;
+            left:500px;
+            z-index: 10;
+            background-color: #DDDDDD;
+            border-radius: 50%;
+            width: 500px;
+            height: 500px;
+        }
+        .go:hover{
+            background-color: red;
+        }
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#desk").click(function () {
+                $("#pic1").show();
+                setTimeout(function () {
+                    $(".word").show(3000);
+                }, 0);
+                setTimeout(function () {
+                    $(".word").hide(3000);
+                    $("#pic2").fadeIn(3000);
+                }, 4000);
+                setTimeout(function () {
+                    $(".word2").show(3000);
+                }, 6000);
+                setTimeout(function () {
+                    $("#pic3").show();
+                }, 10000);
+                setTimeout(function () {
+                    $("#pic4").show();
+                }, 11000);
+                setTimeout(function () {
+                    $("#pic4").hide();
+                    $("#pic3").hide();
+                    $(".word2").hide();
+                    $("#pic2").hide();
+                    $("#pic1").hide();
+                     $("#desk").hide();
+                    $(".go").show();
+
+                }, 12000);
+            });
+            $('#go').click(function () {
+                window.location.assign("homepage.html");
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <img src="pic/desk.jpg" class="pic" id="desk">
+    <img src="pic/go.gif"style="display:none;" class="go" id="go">
+    <img style="display:none;" src="pic/index-1.jpg" class="pic" id="pic1">
+    <img style="display:none;" src="pic/index-2.jpg" class="pic" id="pic2">
+    <img style="display:none;" src="pic/index-text-3.jpg" class="pic" id="pic3">
+    <img style="display:none;" src="pic/index-text-4.jpg" class="pic" id="pic4">
+    <div style="display:none;" class="word"><img src="pic/index-text-1.gif"></div>
+    <div style="display:none;" class="word2"><img src="pic/index-text-2.gif"></div>
+</body>
+
+</html>
