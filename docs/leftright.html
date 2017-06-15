@@ -338,12 +338,11 @@
             top: 40%;
             right: 5%;
             z-index: 11;
-            background-color: #FFFF77;
         }
 
         .critic {
             position: absolute;
-            color: blueviolet;
+            color: white;
             text-align: center;
             top: 5%;
             right: 5%;
@@ -426,7 +425,22 @@
             top: 40px;
             left: 25px;
         }
-            body{
+
+        #car1 {
+            position: absolute;
+            left: 65%;
+            top: 1600px;
+            z-index: 10;
+        }
+
+        #car2 {
+            position: absolute;
+            left: 18%;
+            top: -500px;
+            z-index: 10;
+        }
+
+        body {
             font-family: Microsoft JhengHei;
         }
     </style>
@@ -436,8 +450,10 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function () {
+            setInterval(cargo, 1000);
             $('#rshop1').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 150 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -449,6 +465,7 @@
             });
             $('#rshop2').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 700 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -460,6 +477,7 @@
             });
             $('#rshop3').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 900 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -471,6 +489,7 @@
             });
             $('#rshop4').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 1000 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -482,6 +501,7 @@
             });
             $('#lshop5').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 1300 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').hide();
@@ -506,7 +526,7 @@
                 window.location.assign("leftleft.html");
             });
             $('#goto4').click(function () {
-                window.location.assign("rightleft.html");
+                window.location.assign("homepage.html");
             });
             $('.closepanel').click(function () {
                 $('.quickpanel').hide(1000);
@@ -544,6 +564,14 @@
                 $('.talk-text').text(text[cha]);
             }
         });
+        function cargo() {
+            $("#car1").animate({ top: '-500px' }, 3000, function () {
+                $("#car1").css({ "top": 1500 });
+            });
+            $("#car2").animate({ top: '1800px' }, 2000, function () {
+                $("#car2").css({ "top": -500 });
+            });
+        }
         function show1() { $('#food1').show(); }
         function hide1() { $('#food1').hide(); }
         function show2() { $('#food2').show(); }
@@ -566,7 +594,7 @@
         <div class="goto" id="goto1">去新豐</div>
         <div class="goto" id="goto2">去濱海</div>
         <div class="goto" id="goto3">去祥豐</div>
-        <div class="goto" id="goto4">去深溪</div>
+        <div class="goto" id="goto4">回起點</div>
         <div>
             <div class="closepanel">close</div>
         </div>
@@ -604,6 +632,8 @@
         </div>
     </div>
     <div class="road">
+        <img src="pic/car.gif" id="car1">
+        <img src="pic/car2.gif" id="car2">
         <div class="road-gray-left"></div>
         <div class="road-yellow" id="y0"></div>
         <div class="road-yellow" id="y1"></div>

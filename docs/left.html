@@ -85,7 +85,7 @@
             height: 40px;
             background: gold;
             transform: rotate(60deg)skew(60deg);
-            z-index: 20;
+            z-index: 3;
             left: 413;
             top: 336;
         }
@@ -126,16 +126,16 @@
         }
 
         #pic {
-            width: 128px;
-            height: 80px;
+            width: 10%;
+            height: 10%;
             position: fixed;
             top: 48%;
             left: 46%;
         }
 
         .talk {
-            width: 128px;
-            height: 80px;
+            width: 10%;
+            height: 10%;
             position: fixed;
             top: 38%;
             left: 45%;
@@ -285,7 +285,7 @@
             top: 10%;
             right: 0;
             width: 300px;
-            height: 500px;
+            height: 600px;
             border-radius: 10%;
             z-index: 6;
         }
@@ -540,7 +540,7 @@
             top: 1100px;
             width: 250px;
             height: 250px;
-            z-index: 10;
+            z-index: 5;
         }
 
         .talk2 {
@@ -573,6 +573,8 @@
 
             $('#rshop1').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 150 });
+                $('.iphone').css({ "top": 0 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -584,6 +586,8 @@
             });
             $('#rshop2').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 900 });
+                $('.iphone').css({ "top": 750 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -595,6 +599,8 @@
             });
             $('#rshop3').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 1100 });
+                $('.iphone').css({ "top": 950 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -606,6 +612,8 @@
             });
             $('#rshop4').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 1300 });
+                $('.iphone').css({ "top": 1150 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
@@ -617,6 +625,8 @@
             });
             $('#rshop5').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 1300 });
+                $('.iphone').css({ "top": 1150 });
                 $('#s1').hide();
                 $('#s2').hide();
                 $('#s3').hide();
@@ -673,13 +683,11 @@
                 if (scrollTop > 350) { $('#rshop2').show(); }
                 if (scrollTop > 600) {
                     $('#rshop3').show();
-                    $('.peo').show();
                     setInterval(function () {
                         $('.talk2').show();
                         $('#text2').show();
-                    },1000);
-                     $(".peo").animate({ left: '-100px' },1000);
-
+                    }, 1000);
+                    $(".peo").show().animate({ left: '-100px' }, 1000);
                 }
                 if (scrollTop > 850) { $('#rshop4').show(); }
                 if (scrollTop > 1000) { $('#rshop5').show(); }

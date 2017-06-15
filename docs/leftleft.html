@@ -199,7 +199,7 @@
             top: 10%;
             right: 0;
             width: 300px;
-            height: 500px;
+            height: 600px;
             border-radius: 10%;
             z-index: 6;
         }
@@ -338,12 +338,11 @@
             top: 40%;
             right: 5%;
             z-index: 11;
-            background-color: #FFFF77;
         }
 
         .critic {
             position: absolute;
-            color: blueviolet;
+            color: white;
             text-align: center;
             top: 5%;
             right: 5%;
@@ -426,6 +425,24 @@
             top: 40px;
             left: 25px;
         }
+
+        #car1 {
+            position: absolute;
+            left: 65%;
+            top: 1600px;
+            z-index: 10;
+        }
+
+        #car2 {
+            position: absolute;
+            left: 18%;
+            top: -500px;
+            z-index: 10;
+        }
+
+        body {
+            font-family: Microsoft JhengHei;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/slick.css" />
@@ -433,59 +450,65 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function () {
+              setInterval(cargo, 1000);
             $('#rshop1').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 150 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
                 $('#s4').hide();
                 $('#s5').hide();
                 $('#fopic1').attr('src', 'pic/leftleft1-1.jpg');
-                $('#fopic2').attr('src', ' pic/leftleft1-2.jpg');
+                $('#fopic2').attr('src', 'pic/leftleft1-2.jpg');
                 $('.critic').html('推薦品項:無特別推薦品項</br></br>早餐店經典款，用餐環境舒適，有不少創意早餐可以嘗試。');
             });
             $('#rshop2').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 900 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
                 $('#s4').hide();
                 $('#s5').hide();
                 $('#fopic1').attr('src', 'pic/leftleft2-1.jpg');
-                $('#fopic2').attr('src', ' pic/leftleft2-2.jpg');
+                $('#fopic2').attr('src', 'pic/leftleft2-2.jpg');
                 $('.critic').html('推薦品項:</br></br>');
             });
             $('#rshop3').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 900 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
                 $('#s4').show();
                 $('#s5').show();
                 $('#fopic1').attr('src', 'pic/leftleft3-1.jpg');
-                $('#fopic2').attr('src', ' pic/leftleft3-1.jpg');
+                $('#fopic2').attr('src', 'pic/leftleft3-1.jpg');
                 $('.critic').html('推薦品項:炒飯、鐵板燒</br></br>炒飯粒粒分明，有火的味道，去骨雞排酥脆多汁，鐵板燒滋滋作響，店內因此常常大排長龍');
             });
             $('#rshop4').click(function () {
                 $('.list').fadeIn(1000);
+                $('.foodpic').css({ "top": 1000 });
                 $('#s1').show();
                 $('#s2').show();
                 $('#s3').show();
                 $('#s4').show();
                 $('#s5').hide();
-                $('#fopic1').attr('src', 'pic/lefleft4-1.jpg');
-                $('#fopic2').attr('src', ' pic/leftleft4-2.jpg');
+                $('#fopic1').attr('src', 'pic/leftleft4-1.jpg');
+                $('#fopic2').attr('src', 'pic/leftleft4-2.jpg');
                 $('.critic').html('推薦品項:奶油熱狗面</br></br>不用多說，進去直接說，2號餐，奶茶，奶油熱狗麵。吃過之後，每天沒吃到都會淚流滿面');
             });
             $('#rshop5').click(function () {
                 $('.list').fadeIn(1000);
-                $('#s1').hide();
-                $('#s2').hide();
-                $('#s3').hide();
-                $('#s4').show();
-                $('#s5').show();
-                $('#fopic1').attr('src', 'pic/lefleft5-1.jpg');
-                $('#fopic2').attr('src', ' pic/lefleft5-1.jpg');
+                $('.foodpic').css({ "top": 1300 });
+                $('#s1').show();
+                $('#s2').show();
+                $('#s3').show();
+                $('#s4').hide();
+                $('#s5').hide();
+                $('#fopic1').attr('src', 'pic/leftleft5-1.jpg');
+                $('#fopic2').attr('src', 'pic/leftleft5-1.jpg');
                 $('.critic').html('推薦品項:健康創意料理</br></br>蔬食新生活，吃得健康，活得安心，香米湯湯是您最好的選擇');
             });
             $('.close').click(function () { $('.list').hide(); });
@@ -503,7 +526,7 @@
                 window.location.assign("left.html");
             });
             $('#goto4').click(function () {
-                window.location.assign("rightleft.html");
+                window.location.assign("homepage.html");
             });
             $('.closepanel').click(function () {
                 $('.quickpanel').hide(1000);
@@ -541,6 +564,14 @@
                 $('.talk-text').text(text[cha]);
             }
         });
+        function cargo() {
+            $("#car1").animate({ top: '-500px' }, 3000, function () {
+                $("#car1").css({ "top": 1500 });
+            });
+            $("#car2").animate({ top: '1800px' }, 2000, function () {
+                $("#car2").css({ "top": -500 });
+            });
+        }
         function show1() { $('#food1').show(); }
         function hide1() { $('#food1').hide(); }
         function show2() { $('#food2').show(); }
@@ -563,7 +594,7 @@
         <div class="goto" id="goto1">去新豐</div>
         <div class="goto" id="goto2">去中正</div>
         <div class="goto" id="goto3">去濱海</div>
-        <div class="goto" id="goto4">去深溪</div>
+        <div class="goto" id="goto4">回起點</div>
         <div>
             <div class="closepanel">close</div>
         </div>
@@ -596,6 +627,8 @@
     <div class="store" id="leftstore">
     </div>
     <div class="road">
+        <img src="pic/car.gif" id="car1">
+        <img src="pic/car2.gif" id="car2">
         <div class="road-gray-left"></div>
         <div class="road-yellow" id="y0"></div>
         <div class="road-yellow" id="y1"></div>
